@@ -15,7 +15,7 @@
   Add to Cart
   <div class="input-group mb-3 add-to-cart-ctrl">
     <button [disabled]="cartItem === 0"  class="btn btn-outline-secondary" type="button" (click)="updateCart(false)">-</button>
-    <input type="text" class="form-control" [ngModel]="cartItem">
+    <input type="text" class="form-control" [ngModel]="cartItem" [disabled]="true">
     <button [disabled]="cartItem === item.qty" class="btn btn-outline-secondary" type="button" (click)="updateCart(true)">+</button>
   </div>
 </div>
