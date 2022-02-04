@@ -11,11 +11,11 @@
   </ng-container>
 
   <div class="item-price">{{item.price}}</div>
-  <div class="item-stock">In Stock: <span>{{item.qty}}</span></div>
+  <div class="item-stock">In Stock: <span>{{item.qty - cartItem}}</span></div>
   Add to Cart
   <div class="input-group mb-3 add-to-cart-ctrl">
-    <button class="btn btn-outline-secondary" type="button" (click)="updateCart(false)">-</button>
+    <button [disabled]="cartItem === 0"  class="btn btn-outline-secondary" type="button" (click)="updateCart(false)">-</button>
     <input type="text" class="form-control" [ngModel]="cartItem">
-    <button class="btn btn-outline-secondary" type="button" (click)="updateCart(true)">+</button>
+    <button [disabled]="cartItem === item.qty" class="btn btn-outline-secondary" type="button" (click)="updateCart(true)">+</button>
   </div>
 </div>
