@@ -15,9 +15,17 @@ export class CartItemComponent implements OnInit {
     299,
     5);
 
-  constructor() { }
+  cartItem = 0;
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
 
+  updateCart(increment: boolean) {
+    increment? this.cartItem ++ : this.cartItem--;
+
+  }
 }
