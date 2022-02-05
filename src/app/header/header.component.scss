@@ -55,11 +55,19 @@ header{
       font-weight: bold;
     }
 
-    .cart-icon{
+    .cart-icon {
       background-image: url('../../assets/images/amazon-icons.png');
       background-position: -10px -340px;
       width: 38px;
-      height: 26px;
+      text-align: center;
+
+      span {
+        position: relative;
+        top: -10px;
+        left: 3px;
+        font-weight: bold;
+        color: #f08804;
+      }
     }
   }
 }

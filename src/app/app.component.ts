@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {DUMMY_DATA} from "./dummy-data";
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,5 +9,10 @@ import {DUMMY_DATA} from "./dummy-data";
 })
 export class AppComponent {
   item = DUMMY_DATA;
+
+  updateCart(inCart: number) {
+    console.log(inCart);
+  }
+
 
 }
