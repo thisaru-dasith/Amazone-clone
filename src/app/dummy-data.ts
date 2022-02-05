@@ -9,7 +9,7 @@ import {Item} from "./dto/item";
      299,
      5),
    new Item("I002",
-     "https://m.media-amazon.com/images/I/81Sxdp0JBLL._AC_UL320_.jpgg",
+     "https://m.media-amazon.com/images/I/81Sxdp0JBLL._AC_UL320_.jpg",
      "Nintendo Switch - Animal Crossing: New Horizons Edition - Switch",
      4,
      55,
