@@ -1,11 +1,23 @@
 header{
-  height: 50px;
-  background-color: yellow;
   height: 60px;
   background-color: #232f3e;
   display: flex;
   align-items: center;
   padding: 10px;
+
+  .logo-container{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid transparent;
+
+    &:hover{
+      border: 1px solid white;
+    }
+  }
 
   .logo{
     background-image: url('../../assets/images/amazon-icons.png');
