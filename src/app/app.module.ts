@@ -23,6 +23,11 @@ const routes : Routes = [
   {
     path:"cart",
     component: CartComponent
+  },
+  {
+    path:"",
+    pathMatch: 'full',
+    redirectTo:"/home"
   }
 ]
 
