@@ -2,8 +2,8 @@
   <app-header [totalItemsInCart]="getTotalItemsInCart()"></app-header>
 
 
-<main>
-  <app-cart-item *ngFor="let it of item" [item]="it" (cartOnChange)="updateCart($event,it)" ></app-cart-item>
-
+<main><!--
+  /<app-cart-item *ngFor="let it of item" [item]="it" (cartOnChange)="updateCart($event,it)" ></app-cart-item>-->
+<app-item></app-item>
 
 </main>
