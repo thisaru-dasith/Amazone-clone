@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Item} from "../dto/item";
 import {CartService} from "../service/cart.service";
 import {ItemService} from "../service/item.service";
+import {Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-cart-item',
@@ -17,7 +18,8 @@ export class CartItemComponent implements OnInit {
 
 
   constructor(private cartService: CartService,
-              private itemService : ItemService) {
+              private itemService : ItemService,
+              private router : Router) {
 
   }
 
@@ -28,5 +30,9 @@ export class CartItemComponent implements OnInit {
     increment? this.cartItem ++ : this.cartItem--;
     this.cartService.updateCart(this.item, this.cartItem);
 
+  }
+
+  navigateToItem() {
+        this.router.navigateByUrl('/item');
   }
 }
