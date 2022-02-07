@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Item} from "../dto/item";
 import {CartService} from "../service/cart.service";
+import {ItemService} from "../service/item.service";
 
 @Component({
   selector: 'app-cart-item',
@@ -17,7 +18,8 @@ export class CartItemComponent implements OnInit {
   @Output()
   cartOnChange = new EventEmitter<number>();
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private itemService : ItemService) {
 
   }
 
