@@ -7,7 +7,7 @@ import {Item} from "./dto/item";
      "Apple AirPods with Charging Case",
      3,
      299,
-     5),
+     5,"Something here"),
    new Item("I002",
      "https://m.media-amazon.com/images/I/81Sxdp0JBLL._AC_UL320_.jpg",
      "Nintendo Switch - Animal Crossing: New Horizons Edition - Switch",

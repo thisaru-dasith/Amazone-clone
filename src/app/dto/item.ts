@@ -6,6 +6,6 @@ export class Item {
               public rating: 1 | 2 | 3 | 4 | 5,
               public price: number,
               public qty: number,
-              public description: string) {
+              public description?: string) {
   }
 }
