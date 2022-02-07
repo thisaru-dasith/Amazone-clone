@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DUMMY_DATA} from "../dummy-data";
 import {Item} from "../dto/item";
+import {ItemService} from "../service/item.service";
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,14 @@ import {Item} from "../dto/item";
 })
 export class HomeComponent implements OnInit {
 
-  item = DUMMY_DATA;
-  cartItem : Array<{code:String, qty : number}> = []
+  item  : Array<Item>;
+  //cartItem : Array<{code:String, qty : number}> = []
 
-  updateCart(inCart: number, it: Item) {
+  constructor(private itemService :ItemService) {
+    this.item = itemService.getAllItem()
+  }
+
+  /*updateCart(inCart: number, it: Item) {
     const item = this.cartItem.find(i => i.code === it.code);
 
     if (item){
@@ -24,7 +29,7 @@ export class HomeComponent implements OnInit {
     }else{
       this.cartItem.push({code: it.code, qty: inCart});
     }
-  }
+  }*/
   ngOnInit(): void {
   }
 
