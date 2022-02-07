@@ -24,6 +24,7 @@ export class CartItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadInCartQty()
   }
 
   updateCart(increment: boolean) {
@@ -35,4 +36,8 @@ export class CartItemComponent implements OnInit {
   navigateToItem() {
     this.router.navigate(['/item', this.item.code])
   }
+  loadInCartQty(){
+    this.cartItem = this.cartService.getQtyInCart(this.item.code);
+  }
+
 }

@@ -19,10 +19,13 @@ export class ItemComponent implements OnInit {
               private itemService: ItemService,
               private activeRoute: ActivatedRoute,
               private router: Router) {
+
+
   }
 
   ngOnInit(): void {
     this.loadItem();
+    this.loadInCartQty()
   }
 
   loadItem() {
@@ -45,5 +48,11 @@ export class ItemComponent implements OnInit {
     increment ? this.cartItem++ : this.cartItem--;
     this.cartService.updateCart(this.item, this.cartItem);
   }
+
+  loadInCartQty(){
+    this.cartItem = this.cartService.getQtyInCart(this.item.code);
+  }
+
+
 
 }
