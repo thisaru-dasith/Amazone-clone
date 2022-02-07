@@ -13,6 +13,7 @@ import {Item} from "../dto/item";
 export class ItemComponent implements OnInit {
 
   item!: Item;
+  cartItem = 0;
 
   constructor(private cartService: CartService,
               private itemService: ItemService,
@@ -40,4 +41,9 @@ export class ItemComponent implements OnInit {
     }
 
   }
+  updateCart(increment: boolean) {
+    increment ? this.cartItem++ : this.cartItem--;
+    this.cartService.updateCart(this.item, this.cartItem);
+  }
+
 }
