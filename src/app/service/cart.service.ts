@@ -51,6 +51,7 @@ export class CartService {
 
   removeItemFromCart(code: string): void{
     this.cartItem = this.cartItem.filter(item => item.code !== code);
+    this.calculateTotalItems();
   }
 }
 

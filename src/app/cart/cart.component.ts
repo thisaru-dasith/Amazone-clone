@@ -3,6 +3,7 @@ import {CartService} from "../service/cart.service";
 import {ItemService} from "../service/item.service";
 import {Item} from "../dto/item";
 import {DUMMY_DATA} from "../dummy-data";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,8 @@ export class CartComponent implements OnInit {
   cartItems!: Array<{code: string, qty: number}>;
 
   constructor(private cartService : CartService,
-               public itemService : ItemService) { }
+               public itemService : ItemService,
+              public router : Router) { }
 
   ngOnInit(): void {
       this.loadAllCartItems();
@@ -29,4 +31,7 @@ export class CartComponent implements OnInit {
     return this.itemService.getItem(code) as Item;
   }
 
+  navigateToItem(code: string) {
+    this.router.navigate(['/items', code]);
+  }
 }
