@@ -11,16 +11,22 @@ import {DUMMY_DATA} from "../dummy-data";
 })
 export class CartComponent implements OnInit {
 
+  cartItems!: Array<{code: string, qty: number}>;
 
   constructor(private cartService : CartService,
-               private itemService : ItemService) { }
+               public itemService : ItemService) { }
 
   ngOnInit(): void {
       this.loadAllCartItems();
   }
 
   loadAllCartItems(){
+    this.cartItems =  this.cartService.getAllCartItems();
 
+  }
+
+  getItem(code: string): Item {
+    return this.itemService.getItem(code) as Item;
   }
 
 }
