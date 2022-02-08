@@ -16,6 +16,11 @@ export class CartComponent implements OnInit {
                private itemService : ItemService) { }
 
   ngOnInit(): void {
+      this.loadAllCartItems();
+  }
+
+  loadAllCartItems(){
+
   }
 
 }
