@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {Router, RouterModule, Routes} from "@angular/router";
 import { CartComponent } from './cart/cart.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { CartRowComponent } from './cart-row/cart-row.component';
 
 
 
@@ -20,7 +21,8 @@ import {AppRoutingModule} from "./app-routing.module";
     CartItemComponent,
     ItemComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    CartRowComponent
   ],
   imports: [
     BrowserModule,
