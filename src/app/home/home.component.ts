@@ -10,15 +10,20 @@ import {ItemService} from "../service/item.service";
 })
 export class HomeComponent implements OnInit {
 
-  item  : Array<Item>;
+  item: Array<Item> = [];
+
   //cartItem : Array<{code:String, qty : number}> = []
 
-  constructor(private itemService :ItemService) {
-    this.item = itemService.getAllItem()
+  constructor(private itemService: ItemService) {
   }
 
 
   ngOnInit(): void {
+        this.loadAllItems();
   }
 
+  loadAllItems() :void {
+    this.itemService.getAllItem().subscribe(values => this.item = values,
+      error=> console.error(error));
+  }
 }
