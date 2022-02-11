@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import {DUMMY_DATA} from "../dummy-data";
 import {Item} from "../dto/item";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
-  getAllItem() : Array<Item>{
-    return DUMMY_DATA;
+
+  getAllItem() : Observable<Array<Item>>{
+    return this.http.get<Array<Item>>('http://localhost:8080/items/');
   }
 
   getItem(code: string): Item | null {
