@@ -11,6 +11,7 @@ import {Router, RouterModule, Routes} from "@angular/router";
 import { CartComponent } from './cart/cart.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { CartRowComponent } from './cart-row/cart-row.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -27,7 +28,8 @@ import { CartRowComponent } from './cart-row/cart-row.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
 
   ],
   providers: [],
