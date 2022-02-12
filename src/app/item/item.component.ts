@@ -30,20 +30,19 @@ export class ItemComponent implements OnInit {
 
   loadItem() {
     const itemCode = this.activeRoute.snapshot.paramMap.get('code');
-
     if (itemCode) {
-      const item = this.itemService.getItem(itemCode);
-
-      if (!item) {
-        this.router.navigateByUrl('/home');
-      } else {
+      this.itemService.getItem(itemCode).subscribe(item => {
         this.item = item;
-      }
-    } else {
+    }, error => {
       this.router.navigateByUrl('/home');
+    })
+  } else{
+  this.router.navigateByUrl('/home');
     }
 
   }
+
+
   updateCart(increment: boolean) {
     increment ? this.cartItem++ : this.cartItem--;
     this.cartService.updateCart(this.item, this.cartItem);
