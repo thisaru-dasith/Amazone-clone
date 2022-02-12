@@ -59,7 +59,7 @@ export class CartService {
     let total = 0;
 
     this.cartItem.forEach(item => {
-      total += this.itemService.getItem(item.code)!.price * item.qty;
+      //total += this.itemService.getItem(item.code)!.price * item.qty;
     })
 
     return total;

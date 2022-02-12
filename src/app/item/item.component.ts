@@ -25,14 +25,15 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadItem();
-    this.loadInCartQty()
+
   }
 
   loadItem() {
     const itemCode = this.activeRoute.snapshot.paramMap.get('code');
     if (itemCode) {
-      this.itemService.getItem(itemCode).subscribe(item => {
+      this.itemService.getItem(itemCode).pipe().subscribe(item => {
         this.item = item;
+        this.loadInCartQty();
     }, error => {
       this.router.navigateByUrl('/home');
     })
