@@ -11,7 +11,7 @@ export class CartService {
   private cartItem: Array<{item: Item, qty: number}> = [];
   totalItem = new Subject<number>();
 
-  constructor(private itemService: ItemService) { }
+  constructor() { }
 
   updateCart(it: Item,toCart: number) {
     const item = this.cartItem.find(i => i.item === it);
