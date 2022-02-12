@@ -13,7 +13,7 @@ import {Observable} from "rxjs";
 })
 export class CartComponent implements OnInit {
   total: number = 0;
-  cartItems!: Array<{code: string, qty: number}>;
+  cartItems!: Array<{item: Item, qty: number}>;
 
   constructor(private cartService : CartService,
                public itemService : ItemService,
@@ -30,9 +30,9 @@ export class CartComponent implements OnInit {
 
   }
 
-  getItem(code: string): Observable<Item> {
+  /*getItem(code: string): Observable<Item> {
     return this.itemService.getItem(code);
-  }
+  }*/
 
   navigateToItem(code: string) {
     this.router.navigate(['/items', code]);

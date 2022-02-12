@@ -57,13 +57,13 @@ export class CartService {
 
   getNetTotal(): number{
     let total = 0;
-
-    this.cartItem.forEach(item => {
-      //total += this.itemService.getItem(item.code)!.price * item.qty;
+      this.cartItem.forEach(ci => {
+        total += ci.item.price * ci.qty;
     })
 
     return total;
-  }
+}
+
 }
 
 
