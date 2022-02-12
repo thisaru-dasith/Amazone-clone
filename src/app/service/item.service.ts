@@ -11,15 +11,14 @@ export class ItemService {
 
   constructor(private http : HttpClient) { }
 
+  readonly ITEM_SERVICE_API = 'http://localhost:8080/amazon/items';
 
-  getAllItem() : Observable<Array<Item>>{
-    return this.http.get<Array<Item>>('http://localhost:8080/items/');
+  getAllItems() : Observable<Array<Item>>{
+    return this.http.get<Array<Item>>(this.ITEM_SERVICE_API);
   }
 
-  getItem(code: string): Item | null {
-    const item = DUMMY_DATA.find(item => item.code === code);
-
-    return item? item: null;
+  getItem(code: string): Observable<Item> {
+    return this.http.get<Item>(`${this.ITEM_SERVICE_API}?code=${code}`);
   }
 
 }
