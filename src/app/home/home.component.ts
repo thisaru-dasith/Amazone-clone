@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DUMMY_DATA} from "../dummy-data";
 import {Item} from "../dto/item";
 import {ItemService} from "../service/item.service";
+import {delay} from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   loadAllItems(){
-    this.itemService.getAllItems().subscribe(values=> this.item = values,
+    this.itemService.getAllItems().subscribe(values=> {this.item = values; console.log(this.item)},
       error=> console.error(error));
   }
 }

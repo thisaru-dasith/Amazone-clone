@@ -8,13 +8,13 @@ import {ItemService} from "./item.service";
 })
 export class CartService {
 
-  cartItem : Array<{code:string, qty : number}> = []
+  private cartItem: Array<{item: Item, qty: number}> = [];
   totalItem = new Subject<number>();
 
   constructor(private itemService: ItemService) { }
 
   updateCart(it: Item,toCart: number) {
-   const item = this.cartItem.find(i => i.code === it.code);
+    const item = this.cartItem.find(i => i.item === it);
 
    if (item){
      item.qty = toCart;
@@ -23,7 +23,7 @@ export class CartService {
        this.cartItem.splice(this.cartItem.indexOf(item), 1);
      }
    }else{
-     this.cartItem.push({code: it.code, qty: toCart});
+     this.cartItem.push({item: it, qty: toCart});
    }
     this.calculateTotalItems();
 
@@ -41,17 +41,17 @@ export class CartService {
   }
 
   getQtyInCart(code: string): number{
-    const item = this.cartItem.find(i => i.code === code);
+    const item = this.cartItem.find(i => i.item.code === code);
 
     return item? item.qty: 0;
   }
 
-  getAllCartItems(): Array<{code: string, qty: number}>{
+  getAllCartItems(): Array<{item: Item, qty: number}>{
     return this.cartItem;
   }
 
   removeItemFromCart(code: string): void{
-    this.cartItem = this.cartItem.filter(item => item.code !== code);
+    this.cartItem = this.cartItem.filter(i => i.item.code !== code);
     this.calculateTotalItems();
   }
 

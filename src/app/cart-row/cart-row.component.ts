@@ -1,4 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { Item } from '../dto/item';
 import {DUMMY_DATA} from "../dummy-data";
 import {CartService} from "../service/cart.service";
